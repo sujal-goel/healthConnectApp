@@ -1,19 +1,23 @@
 workflows:
-  android-app:
-    name: Build HealthConnect APK
+  build-android:
+    name: Build Android APK
+    max_build_duration: 15
+    instance_type: mac_mini_m1
+
     environment:
-      flutter: false
       vars:
-        JAVA_HOME: /opt/android-studio/jre
+        GRADLE_OPTS: "-Xmx4096m -Dorg.gradle.jvmargs=-Xmx4096m"
+
     scripts:
-      - name: Clean project
+      - name: Clean the project
         script: ./gradlew clean
       - name: Build APK
         script: ./gradlew assembleDebug
+
     artifacts:
       - app/build/outputs/**/*.apk
+
     publishing:
       email:
         recipients:
-          - sujalgoel19@yahoo.com
-          
+          - your-email@example.com
