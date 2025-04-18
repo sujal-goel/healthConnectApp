@@ -9,6 +9,8 @@ workflows:
         GRADLE_OPTS: "-Xmx4096m -Dorg.gradle.jvmargs=-Xmx4096m"
 
     scripts:
+      - name: Make gradlew executable
+        script: chmod +x ./gradlew
       - name: Clean the project
         script: ./gradlew clean
       - name: Build APK
