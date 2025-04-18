@@ -2,20 +2,18 @@ workflows:
   android-app:
     name: Build HealthConnect APK
     environment:
+      flutter: false
       vars:
         JAVA_HOME: /opt/android-studio/jre
-      android:
-        sdk: 33
     scripts:
-      - name: Set up Gradle
-        script: |
-          ./gradlew clean
-      - name: Build Debug APK
-        script: |
-          ./gradlew assembleDebug
+      - name: Clean project
+        script: ./gradlew clean
+      - name: Build APK
+        script: ./gradlew assembleDebug
     artifacts:
       - app/build/outputs/**/*.apk
     publishing:
       email:
         recipients:
           - sujalgoel19@yahoo.com
+          
