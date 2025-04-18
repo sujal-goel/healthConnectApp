@@ -1,0 +1,25 @@
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.healthconnect">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_HEALTH_DATA"/>
+    <uses-permission android:name="android.permission.WRITE_HEALTH_DATA"/>
+
+    <application
+        android:allowBackup="true"
+        android:label="HealthConnect"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <uses-library
+            android:name="com.google.android.health.connect"
+            android:required="false"/>
+    </application>
+
+</manifest>
