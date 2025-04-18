@@ -10,7 +10,9 @@ workflows:
 
     scripts:
       - name: Make gradlew executable
-        script: chmod +x ./gradlew
+        script: |
+          chmod +x ./gradlew
+          chmod +x ./gradle/wrapper/gradle-wrapper.jar
       - name: Clean the project
         script: ./gradlew clean
       - name: Build APK
